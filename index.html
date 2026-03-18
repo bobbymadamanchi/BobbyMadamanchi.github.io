@@ -56,9 +56,30 @@
         }
 
         /* Header */
+/* Dark masthead */
+        .page-header {
+            background: #1A1A1A;
+            padding-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-ghost {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: 80% center;
+            opacity: 0.10;
+            z-index: 0;
+        }
+
         .header-content {
             max-width: 780px;
-            margin: -36px auto 0;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding-top: 28px;
             padding: 0 32px;
             position: relative;
             z-index: 2;
@@ -75,7 +96,7 @@
         .name {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(3rem, 6vw, 4.5rem);
-            color: var(--dark);
+            color: #ffffff;
             letter-spacing: 0.02em;
             line-height: 1;
         }
@@ -102,7 +123,7 @@
         .intro {
             margin-top: 28px;
             font-size: 1.08rem;
-            color: var(--warm-gray);
+            color: #aaaaaa;
             max-width: 640px;
             line-height: 1.8;
         }
@@ -117,7 +138,7 @@
         .links-bar a {
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--dark);
+            color: #00AEEF;
             text-decoration: none;
             border-bottom: 2px solid var(--magenta);
             padding-bottom: 1px;
@@ -316,6 +337,8 @@
         <div class="hero-overlay"></div>
     </div>
 
+    <div class="page-header">
+        <div class="banner-ghost"></div>
     <div class="header-content">
         
             <div class="header-text">
@@ -336,10 +359,11 @@
             </div>
         </div>
     </div>
+    </div>
 
     <div class="tabs-container">
         <div class="tab-buttons">
-            <div class="tab-avatar"><img src="portrait.jpg" alt="Bobby Madamanchi"></div>
+            <div class="tab-avatar"><img src="portrait.jpeg" alt="Bobby Madamanchi"></div>
             <button class="tab-btn active" data-tab="teach">Teach</button>
             <button class="tab-btn" data-tab="build">Build</button>
             <button class="tab-btn" data-tab="organize">Organize</button>
@@ -388,9 +412,15 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const buttons = document.querySelectorAll('.tab-btn');
         const panels = document.querySelectorAll('.tab-panel');
-
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tab = btn.dataset.tab;
                 buttons.forEach(b => b.classList.remove('active'));
-                panels.forEac
+                panels.forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelector('.tab-panel[data-panel="' + tab + '"]').classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
