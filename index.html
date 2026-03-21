@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bobby Madamanchi — Teach. Build. Organize.</title>
-    <meta name="description" content="Bobby Madamanchi is a data science lecturer, startup cofounder, and labor organizer at the University of Michigan.">
+    <meta name="description" content="Bobby Madamanchi is a data science lecturer, technologist, and labor organizer at the University of Michigan.">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -24,79 +24,21 @@
         body {
             font-family: 'DM Sans', sans-serif;
             color: var(--dark);
-            background: var(--white);
+            background: #F7F4EF;
             line-height: 1.7;
         }
 
-        /* Hero */
-        .hero {
-            position: relative;
-            width: 100%;
-            max-width: 780px;
-            margin: 0 auto;
-            height: 28vh;
-            min-height: 200px;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 80% 20%;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to top, var(--white) 0%, transparent 100%);
-        }
-
         /* Header */
-/* Dark masthead */
-        .page-header {
-            background: #1A1A1A;
-            padding-bottom: 28px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner-ghost {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('banner.png');
-            background-size: contain;
-            background-position: center center;
-            opacity: 0.18;
-            z-index: 0;
-        }
-
         .header-content {
             max-width: 780px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            padding-top: 28px;
-            padding: 0 32px;
-            position: relative;
-            z-index: 2;
+            padding: 48px 32px 36px;
         }
-
-        
-
-        .header-text {
-            flex: 1;
-        }
-
-        
 
         .name {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(3rem, 6vw, 4.5rem);
-            color: #ffffff;
+            color: var(--dark);
             letter-spacing: 0.02em;
             line-height: 1;
         }
@@ -123,7 +65,7 @@
         .intro {
             margin-top: 28px;
             font-size: 1.08rem;
-            color: #aaaaaa;
+            color: var(--warm-gray);
             max-width: 640px;
             line-height: 1.8;
         }
@@ -138,21 +80,19 @@
         .links-bar a {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #00AEEF;
+            color: var(--dark);
             text-decoration: none;
-            border-bottom: 2px solid var(--magenta);
+            border-bottom: 2px solid var(--cyan);
             padding-bottom: 1px;
             transition: border-color 0.2s;
         }
 
-        .links-bar a:hover {
-            border-color: var(--cyan);
-        }
+        .links-bar a:hover { border-color: var(--magenta); }
 
         /* Tabs */
         .tabs-container {
             max-width: 780px;
-            margin: 60px auto 0;
+            margin: 0 auto;
             padding: 0 32px 80px;
         }
 
@@ -160,6 +100,26 @@
             display: flex;
             gap: 0;
             border-bottom: 2px solid #eee;
+            align-items: center;
+        }
+
+        .tab-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            margin-right: 8px;
+            margin-bottom: -2px;
+            border: 2px solid #eee;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+        }
+
+        .tab-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
         }
 
         .tab-btn {
@@ -178,23 +138,11 @@
         }
 
         .tab-btn:hover { color: var(--dark); }
-
         .tab-btn.active { color: var(--dark); }
-
-        .tab-btn[data-tab="teach"].active {
-            border-bottom-color: var(--cyan);
-            color: var(--cyan);
-        }
-
-        .tab-btn[data-tab="build"].active {
-            border-bottom-color: var(--magenta);
-            color: var(--magenta);
-        }
-
-        .tab-btn[data-tab="organize"].active {
-            border-bottom-color: var(--yellow);
-            color: var(--dark);
-        }
+        .tab-btn[data-tab="bio"].active { border-bottom-color: var(--dark); color: var(--dark); }
+        .tab-btn[data-tab="teach"].active { border-bottom-color: var(--cyan); color: var(--cyan); }
+        .tab-btn[data-tab="build"].active { border-bottom-color: var(--magenta); color: var(--magenta); }
+        .tab-btn[data-tab="organize"].active { border-bottom-color: var(--yellow); color: var(--dark); }
 
         .tab-panel {
             display: none;
@@ -219,33 +167,25 @@
         }
 
         .tab-panel p:last-child { margin-bottom: 0; }
-        .tab-panel .highlight { font-weight: 600; }
+        .highlight { font-weight: 600; }
 
-        .tab-panel[data-panel="organize"] {
-            position: relative;
-            overflow: hidden;
-            padding: 36px 32px 40px;
-            margin: 0 -32px;
+        /* Tab images */
+        .tab-image {
+            width: 100%;
+            max-width: 640px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .tab-image-organize {
+            max-width: 200px;
+            float: right;
+            margin: 0 0 16px 24px;
             border-radius: 4px;
         }
 
-        .tab-panel[data-panel="organize"]::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('poster.jpg');
-            background-size: 400px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            opacity: 0.08;
-            z-index: 0;
-        }
-
-        .tab-panel[data-panel="organize"] > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        /* Color bar */
         .color-bar {
             height: 6px;
             background: linear-gradient(
@@ -272,99 +212,57 @@
             font-weight: 600;
         }
 
-        /* Mobile */
         @media (max-width: 600px) {
-            
-            .hero { height: 40vh; min-height: 260px; }
-
-            .header-content {
-                margin-top: 32px;
-                padding: 0 20px;
-            }
-
-            
-
-            .portrait-wrap {
-                width: 90px;
-                height: 90px;
-                margin-top: 0;
-            }
-
-            .tabs-container {
-                padding: 0 20px 60px;
-                margin-top: 48px;
-            }
-
-            .tab-btn {
-                font-size: 1.2rem;
-                padding: 10px 16px 8px;
-                letter-spacing: 0.08em;
-            }
-
-            .tab-panel[data-panel="organize"] {
-                margin: 0 -20px;
-                padding: 36px 20px 40px;
-            }
+            .header-content { padding: 32px 20px 28px; }
+            .tabs-container { padding: 0 20px 60px; }
+            .tab-btn { font-size: 1.2rem; padding: 10px 16px 8px; letter-spacing: 0.08em; }
+            .tab-image-organize { float: none; max-width: 100%; margin: 0 0 16px 0; }
         }
-
-        /* Avatar in tab bar */
-        .tab-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-            align-self: center;
-            margin-right: 8px;
-            margin-bottom: -2px;
-            border: 2px solid #eee;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.12);
-        }
-        .tab-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
+        .img-caption {
+            font-size: 0.78rem;
+            font-style: italic;
+            color: #888;
+            margin-top: 6px;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    
-
-    <div class="page-header">
-        <div class="banner-ghost"></div>
     <div class="header-content">
-        
-            <div class="header-text">
-                <h1 class="name">Bobby Madamanchi</h1>
-                <div class="tagline-block">
-                    <span class="t">Teach</span><span class="dot">. </span>
-                    <span class="b">Build</span><span class="dot">. </span>
-                    <span class="o">Organize</span><span class="dot">.</span>
-                </div>
-                <p class="intro">
-                    I'm a data science lecturer, technologist, and labor organizer at the University of Michigan. I teach data science and digital problem solving, build worker-centered tools, and organize in a time of technological change.
-                </p>
-                <div class="links-bar">
-                    <a href="https://www.si.umich.edu/people/bobby-madamanchi">UMSI Faculty Page</a>
-                    <a href="https://scholar.google.com/citations?user=76MFnHIAAAAJ&hl=en">Google Scholar</a>
-                    <a href="https://www.linkedin.com/in/bobby-madamanchi/">LinkedIn</a>
-                </div>
-            </div>
+        <h1 class="name">Bobby Madamanchi</h1>
+        <div class="tagline-block">
+            <span class="t">Teach</span><span class="dot">. </span>
+            <span class="b">Build</span><span class="dot">. </span>
+            <span class="o">Organize</span><span class="dot">.</span>
         </div>
-    </div>
+
+        <div class="links-bar">
+            <a href="https://www.si.umich.edu/people/bobby-madamanchi">UMSI Faculty Page</a>
+            <a href="https://scholar.google.com/citations?user=76MFnHIAAAAJ&hl=en">Google Scholar</a>
+            <a href="https://www.linkedin.com/in/bobby-madamanchi/">LinkedIn</a>
+        </div>
     </div>
 
     <div class="tabs-container">
         <div class="tab-buttons">
             <div class="tab-avatar"><img src="portrait.jpeg" alt="Bobby Madamanchi"></div>
-            <button class="tab-btn active" data-tab="teach">Teach</button>
+            <button class="tab-btn active" data-tab="bio">Bio</button>
+            <button class="tab-btn" data-tab="teach">Teach</button>
             <button class="tab-btn" data-tab="build">Build</button>
             <button class="tab-btn" data-tab="organize">Organize</button>
         </div>
 
-        <div class="tab-panel active" data-panel="teach">
+        <div class="tab-panel active" data-panel="bio">
+            <p>
+                I'm a data science lecturer, technologist, and labor organizer at the University of Michigan. I teach data science and digital problem solving, build worker-centered tools, and organize in a time of technological change.
+            </p>
+            <p>
+                I hold a PhD in Cancer Biology from Vanderbilt University and was the Independent Future of Work &amp; Learning Postdoctoral Fellow at Purdue Polytechnic.
+            </p>
+        </div>
+
+        <div class="tab-panel" data-panel="teach">
             <p>
                 I'm a Lecturer IV at the <span class="highlight">University of Michigan School of Information</span>, where I teach graduate students and working professionals to think with data and build things. My courses are organized around real problems and student-designed projects.
             </p>
@@ -374,6 +272,8 @@
             <p>
                 I hold a PhD in Cancer Biology from Vanderbilt University and was the Independent Future of Work &amp; Learning Postdoctoral Fellow at Purdue Polytechnic.
             </p>
+            <img src="banner.png" alt="Bobby Madamanchi teaching" class="tab-image" style="margin-top:24px;">
+            <span class="img-caption">Civic tech design hackathon with UM Poverty Solutions</span>
         </div>
 
         <div class="tab-panel" data-panel="build">
@@ -395,23 +295,25 @@
             <p>
                 I'm interested in building political infrastructure for workers' representation and preparing the labor movement for a generative AI world.
             </p>
+            <img src="poster.jpeg" alt="We Want Everything poster" class="tab-image-organize" style="margin-top:24px; float:none; max-width:200px;">
+            <span class="img-caption">Josh MacPhee, 2022 — <a href="https://www.instagram.com/look_loud" style="color:#888;">look_loud</a></span>
         </div>
     </div>
 
     <div class="color-bar"></div>
 
     <div class="footer">
-        <a href="/cdn-cgi/l/email-protection#9cfdf1fdf8fdf1fdf2dce9f1f5fff4b2f9f8e9"><span class="__cf_email__" data-cfemail="b8d9d5d9dcd9d5d9d6f8cdd5d1dbd096dddccd">[email&#160;protected]</span></a> · Ann Arbor, MI
+        <a href="/cdn-cgi/l/email-protection#e1808c8085808c808fa1948c888289cf848594"><span class="__cf_email__" data-cfemail="80e1ede1e4e1ede1eec0f5ede9e3e8aee5e4f5">[email&#160;protected]</span></a> · Ann Arbor, MI
     </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const buttons = document.querySelectorAll('.tab-btn');
         const panels = document.querySelectorAll('.tab-panel');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tab = btn.dataset.tab;
-                buttons.forEach(b => b.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
+        buttons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var tab = btn.getAttribute('data-tab');
+                buttons.forEach(function(b) { b.classList.remove('active'); });
+                panels.forEach(function(p) { p.classList.remove('active'); });
                 btn.classList.add('active');
                 document.querySelector('.tab-panel[data-panel="' + tab + '"]').classList.add('active');
             });
