@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JXDBZF7F73"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JXDBZF7F73');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXDBZF7F73"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JXDBZF7F73');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bobby Madamanchi — Teach. Build. Organize.</title>
     <meta name="description" content="Bobby Madamanchi is a data science lecturer, technologist, and labor organizer at the University of Michigan.">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
         :root {
             --magenta: #E6007E;
@@ -23,6 +22,7 @@
             --green: #00A651;
             --red: #ED1C24;
             --dark: #1A1A1A;
+            --cream: #F7F4EF;
             --white: #FFFFFF;
             --warm-gray: #555;
         }
@@ -33,346 +33,383 @@
         body {
             font-family: 'DM Sans', sans-serif;
             color: var(--dark);
-            background: #F7F4EF;
+            background: var(--cream);
             line-height: 1.7;
         }
 
-        /* Header */
-        .header-content {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 48px 32px 36px;
-        }
-
-        .name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            color: var(--dark);
-            letter-spacing: 0.02em;
-            line-height: 1;
-        }
-
-        .tagline-block {
-            display: inline-block;
+        /* ── STICKY NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
             background: var(--dark);
-            padding: 8px 20px 6px;
-            margin-top: 8px;
-        }
-
-        .tagline-block span {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(1.4rem, 2.8vw, 2rem);
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .tagline-block .t { color: var(--cyan); }
-        .tagline-block .b { color: var(--magenta); }
-        .tagline-block .o { color: var(--yellow); }
-        .tagline-block .dot { color: rgba(255,255,255,0.4); }
-
-        .intro {
-            margin-top: 28px;
-            font-size: 1.08rem;
-            color: var(--warm-gray);
-            max-width: 640px;
-            line-height: 1.8;
-        }
-
-        .links-bar {
-            margin-top: 20px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px 18px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5vw;
+            height: 52px;
         }
 
-        .links-bar a {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--dark);
+        .nav-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            letter-spacing: 0.08em;
+            color: var(--cream);
             text-decoration: none;
-            border-bottom: 2px solid var(--cyan);
-            padding-bottom: 1px;
-            transition: border-color 0.2s;
         }
 
-        .links-bar a:hover { border-color: var(--magenta); }
-
-        /* Tabs */
-        .tabs-container {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0 32px 80px;
-        }
-
-        .tab-buttons {
+        .nav-links {
             display: flex;
             gap: 0;
-            border-bottom: 2px solid #eee;
-            align-items: center;
         }
 
-        .tab-avatar {
-            width: 42px;
-            height: 42px;
+        .nav-links a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            padding: 0 20px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover { color: white; }
+        .nav-links a.teach:hover, .nav-links a.teach.active { border-color: var(--cyan); color: var(--cyan); }
+        .nav-links a.build:hover, .nav-links a.build.active { border-color: var(--magenta); color: var(--magenta); }
+        .nav-links a.organize:hover, .nav-links a.organize.active { border-color: var(--yellow); color: var(--yellow); }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--dark);
+            padding: 72px 5vw 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(to right,
+                var(--cyan) 0%, var(--cyan) 16.66%,
+                var(--green) 16.66%, var(--green) 33.33%,
+                var(--magenta) 33.33%, var(--magenta) 50%,
+                var(--red) 50%, var(--red) 66.66%,
+                var(--yellow) 66.66%, var(--yellow) 83.33%,
+                var(--green) 83.33%, var(--green) 100%
+            );
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 9vw, 8rem);
+            color: var(--cream);
+            letter-spacing: 0.02em;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            display: flex;
+            gap: 0;
+            margin-bottom: 28px;
+        }
+
+        .tagline span {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            letter-spacing: 0.16em;
+            padding: 6px 16px 4px;
+        }
+
+        .tagline .t { background: var(--cyan); color: var(--dark); }
+        .tagline .b { background: var(--magenta); color: white; }
+        .tagline .o { background: var(--yellow); color: var(--dark); }
+
+        .hero-bio {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 560px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+        }
+
+        .hero-links a {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .hero-links a:hover { color: white; border-color: white; }
+
+        .hero-portrait {
+            width: clamp(120px, 14vw, 200px);
+            aspect-ratio: 1;
             border-radius: 50%;
             overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.15);
             flex-shrink: 0;
-            margin-right: 8px;
-            margin-bottom: -2px;
-            border: 2px solid #eee;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+            align-self: flex-end;
         }
 
-        .tab-avatar img {
-            width: 100%;
-            height: 100%;
+        .hero-portrait img {
+            width: 100%; height: 100%;
             object-fit: cover;
             object-position: center top;
         }
 
-        .tab-btn {
+        /* ── SECTIONS ── */
+        section {
+            scroll-margin-top: 52px;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 72px 5vw;
+        }
+
+        .section-label {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 12px 28px 10px;
-            background: none;
-            border: none;
-            border-bottom: 4px solid transparent;
-            margin-bottom: -2px;
-            cursor: pointer;
-            color: #bbb;
-            transition: color 0.2s, border-color 0.2s;
+            font-size: clamp(3rem, 6vw, 5rem);
+            letter-spacing: 0.04em;
+            line-height: 1;
+            margin-bottom: 40px;
         }
 
-        .tab-btn:hover { color: var(--dark); }
-        .tab-btn.active { color: var(--dark); }
-        .tab-btn[data-tab="bio"].active { border-bottom-color: var(--dark); color: var(--dark); }
-        .tab-btn[data-tab="teach"].active { border-bottom-color: var(--cyan); color: var(--cyan); }
-        .tab-btn[data-tab="build"].active { border-bottom-color: var(--magenta); color: var(--magenta); }
-        .tab-btn[data-tab="organize"].active { border-bottom-color: var(--yellow); color: var(--dark); }
-
-        .tab-panel {
-            display: none;
-            padding: 36px 0 0;
-            animation: fadeIn 0.3s ease;
-            min-height: 280px;
-        }
-
-        .tab-panel.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .tab-panel p {
-            font-size: 1.05rem;
-            color: var(--dark);
-            margin-bottom: 16px;
-            max-width: 640px;
-            line-height: 1.8;
-        }
-
-        .tab-panel p:last-child { margin-bottom: 0; }
         .highlight { font-weight: 600; }
 
-        /* Tab images */
-        .tab-image {
-            width: 100%;
-            max-width: 640px;
-            border-radius: 4px;
-            margin-bottom: 24px;
-            display: block;
-        }
-
-        .tab-image-organize {
-            max-width: 200px;
-            float: right;
-            margin: 0 0 16px 24px;
-            border-radius: 4px;
-        }
-
-        .organize-images {
-            max-width: 640px;
-            margin: 32px 0 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .organize-images img {
-            width: 100%;
-            border-radius: 4px;
-            display: block;
-        }
-
-        .poster-section {
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid #e0ddd8;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .poster-section img {
-            max-width: 120px;
-            border-radius: 2px;
-        }
-
-        .poster-section .poster-caption {
-            font-size: 0.82rem;
-            color: #999;
+        .img-caption {
+            font-size: 0.78rem;
             font-style: italic;
-            line-height: 1.6;
-            padding-top: 4px;
+            color: #999;
+            margin-top: 8px;
+            display: block;
         }
 
-        .poster-section .poster-caption a {
-            color: #888;
+        /* ── TEACH ── */
+        #teach {
+            background: var(--cream);
         }
 
-        /* Color bar */
-        .color-bar {
-            height: 6px;
-            background: linear-gradient(
-                to right,
-                var(--cyan) 0%, var(--cyan) 16%,
-                var(--green) 16%, var(--green) 33%,
-                var(--magenta) 33%, var(--magenta) 50%,
-                var(--red) 50%, var(--red) 66%,
-                var(--yellow) 66%, var(--yellow) 83%,
-                var(--green) 83%, var(--green) 100%
-            );
+        #teach .section-label { color: var(--cyan); }
+
+        .teach-text {
+            max-width: 680px;
+            margin-bottom: 48px;
         }
 
-        .footer {
-            padding: 28px 32px;
+        .teach-text p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .teach-text p:last-child { margin-bottom: 0; }
+
+        .teach-image-full {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* ── BUILD ── */
+        #build {
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        #build .section-label { color: var(--magenta); }
+
+        .build-text p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            margin-bottom: 20px;
+            max-width: 680px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .build-text p:last-child { margin-bottom: 0; }
+        #build .highlight { color: white; }
+
+        /* ── ORGANIZE ── */
+        #organize {
+            background: var(--cream);
+        }
+
+        #organize .section-label { color: var(--dark); }
+
+        .organize-body {
+            overflow: hidden;
+        }
+
+        .organize-gif-float {
+            float: right;
+            width: 45%;
+            margin: 0 0 16px 40px;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .organize-gif-caption {
+            float: right;
+            clear: right;
+            width: 45%;
+            font-size: 0.78rem;
+            font-style: italic;
+            color: #999;
+            margin: 0 0 24px 40px;
+            display: block;
+        }
+
+        .organize-body p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            margin-bottom: 20px;
+            max-width: 680px;
+        }
+
+        .organize-body p:last-child { margin-bottom: 0; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            padding: 32px 5vw;
             text-align: center;
             font-size: 0.84rem;
-            color: var(--warm-gray);
+            color: rgba(255,255,255,0.4);
         }
 
-        .footer a {
-            color: var(--dark);
+        footer a {
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-weight: 600;
         }
 
-        @media (max-width: 600px) {
-            .header-content { padding: 32px 20px 28px; }
-            .tabs-container { padding: 0 20px 60px; }
-            .tab-btn { font-size: 1.2rem; padding: 10px 16px 8px; letter-spacing: 0.08em; }
-            .tab-image-organize { float: none; max-width: 100%; margin: 0 0 16px 0; }
-        }
-        .img-caption {
-            font-size: 0.78rem;
-            font-style: italic;
-            color: #888;
-            margin-top: 6px;
-            display: block;
+        /* ── MOBILE ── */
+        @media (max-width: 700px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-portrait { display: none; }
+            .organize-gif-float { float: none; width: 100%; margin: 0 0 8px 0; }
+            .organize-gif-caption { float: none; width: 100%; margin: 0 0 24px 0; }
+            .nav-links a { padding: 0 12px; font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-content">
-        <h1 class="name">Bobby Madamanchi</h1>
-        <div class="tagline-block">
-            <span class="t">Teach</span><span class="dot">. </span>
-            <span class="b">Build</span><span class="dot">. </span>
-            <span class="o">Organize</span><span class="dot">.</span>
+    <nav>
+        <a href="#" class="nav-name">Bobby Madamanchi</a>
+        <div class="nav-links">
+            <a href="#teach" class="teach">Teach</a>
+            <a href="#build" class="build">Build</a>
+            <a href="#organize" class="organize">Organize</a>
         </div>
+    </nav>
 
-        <div class="links-bar">
-            <a href="https://www.si.umich.edu/people/bobby-madamanchi">UMSI Faculty Page</a>
-            <a href="https://scholar.google.com/citations?user=76MFnHIAAAAJ&hl=en">Google Scholar</a>
-            <a href="https://www.linkedin.com/in/bobby-madamanchi/">LinkedIn</a>
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1>Bobby<br>Madamanchi</h1>
+                <div class="tagline">
+                    <span class="t">Teach</span>
+                    <span class="b">Build</span>
+                    <span class="o">Organize</span>
+                </div>
+                <p class="hero-bio">Data science lecturer, technologist, and labor organizer at the University of Michigan. I teach people to think with data, build worker-centered tools, and organize in a time of technological change.</p>
+                <div class="hero-links">
+                    <a href="https://www.si.umich.edu/people/bobby-madamanchi">UMSI Faculty Page</a>
+                    <a href="https://scholar.google.com/citations?user=76MFnHIAAAAJ&hl=en">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/bobby-madamanchi/">LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-portrait">
+                <img src="portrait.jpeg" alt="Bobby Madamanchi">
+            </div>
         </div>
     </div>
 
-    <div class="tabs-container">
-        <div class="tab-buttons">
-            <div class="tab-avatar"><img src="portrait.jpeg" alt="Bobby Madamanchi"></div>
-            <button class="tab-btn active" data-tab="bio">Bio</button>
-            <button class="tab-btn" data-tab="teach">Teach</button>
-            <button class="tab-btn" data-tab="build">Build</button>
-            <button class="tab-btn" data-tab="organize">Organize</button>
-        </div>
-
-        <div class="tab-panel active" data-panel="bio">
-            <p>
-                I'm a data science lecturer, technologist, and labor organizer at the University of Michigan. I teach data science and digital problem solving, build worker-centered tools, and organize in a time of technological change.
-            </p>
-            <p>
-                I hold a PhD in Cancer Biology from Vanderbilt University and was the Independent Future of Work &amp; Learning Postdoctoral Fellow at Purdue Polytechnic.
-            </p>
-        </div>
-
-        <div class="tab-panel" data-panel="teach">
-            <p>
-                I'm a Lecturer IV at the <span class="highlight">University of Michigan School of Information</span>, where I teach graduate students and working professionals to think with data and build things. My courses are organized around real problems and student-designed projects.
-            </p>
-            <p>
-                I facilitate student-centered research across sports analytics, civic technology, educational technology, computational biology, and electoral modeling. My students have built NBA career trajectory models, real-time jumpshot form analyzers, virtual cell simulations, electoral models, and worker-centered tools.
-            </p>
-            <p>
-                I hold a PhD in Cancer Biology from Vanderbilt University and was the Independent Future of Work &amp; Learning Postdoctoral Fellow at Purdue Polytechnic.
-            </p>
-            <img src="banner.png" alt="Bobby Madamanchi teaching" class="tab-image" style="margin-top:24px;">
+    <section id="teach">
+        <div class="section-inner">
+            <div class="section-label">Teach</div>
+            <div class="teach-text">
+                <p>I'm a Lecturer IV at the <span class="highlight">University of Michigan School of Information</span>, where I teach graduate students and working professionals to think with data and build things. My courses are organized around real problems and student-designed projects.</p>
+                <p>I facilitate student-centered research across sports analytics, civic technology, educational technology, computational biology, and electoral modeling. My students have built NBA career trajectory models, real-time jumpshot form analyzers, virtual cell simulations, electoral models, and worker-centered tools.</p>
+                <p>I hold a PhD in Cancer Biology from Vanderbilt University and was the Independent Future of Work &amp; Learning Postdoctoral Fellow at Purdue Polytechnic.</p>
+            </div>
+            <img src="banner.png" alt="Bobby Madamanchi teaching" class="teach-image-full">
             <span class="img-caption">Civic tech design hackathon with UM Poverty Solutions</span>
         </div>
+    </section>
 
-        <div class="tab-panel" data-panel="build">
-            <p>
-                I'm the cofounder of <span class="highlight">PlanArc</span>, a student success startup backed by <span class="highlight">Ann Arbor SPARK</span> and <span class="highlight">UM Innovation Partnerships</span>. PlanArc helps students with executive functioning challenges turn intentions into action. We're piloting with 500 students at the University of Michigan in Fall 2026.
-            </p>
-            <p>
-                My technical work includes virtual cell and tissue simulations, AI-assisted scientific workflows, worker-centered organizing tools, and models for electoral and labor analysis.
-            </p>
+    <section id="build">
+        <div class="section-inner">
+            <div class="section-label">Build</div>
+            <div class="build-text">
+                <p>I'm the cofounder of <span class="highlight">PlanArc</span>, a student success startup backed by <span class="highlight">Ann Arbor SPARK</span> and <span class="highlight">UM Innovation Partnerships</span>. PlanArc helps students with executive functioning challenges turn intentions into action. We're piloting with 500 students at the University of Michigan in Fall 2026.</p>
+                <p>My technical work includes virtual cell and tissue simulations, AI-assisted scientific workflows, worker-centered organizing tools, and models for electoral and labor analysis.</p>
+            </div>
         </div>
+    </section>
 
-<div class="tab-panel" data-panel="organize" style="padding-top: 8px;">
-    <div class="organize-images" style="margin-bottom: 28px;">
-      <img src="leo-2021-animated-v2.gif" alt="Who Does U-M Value? — LEO 2021 contract campaign data visualization" style="width: 100%; display: block; margin: 0; padding: 0;">
-        <span class="img-caption">Madamanchi, 2021 - Contract Campaign Data Visualizations</span>
-    </div>
+    <section id="organize">
+        <div class="section-inner">
+            <div class="section-label">Organize</div>
+            <div class="organize-body">
+                <img src="leo-2021-animated-v2.gif" alt="Who Does U-M Value? — LEO 2021 contract campaign data visualization" class="organize-gif-float">
+                <span class="organize-gif-caption">Madamanchi, 2021 Contract Campaign</span>
+                <p>I'm a steward in <span class="highlight">LEO (AFT Local 6244)</span>, where I've supported two contract campaigns. In 2021, I contributed data analysis and digital communications work as the union reached cross-campus parity for the first time. In 2024, I served on the bargaining team and co-led the organizing committee as we negotiated a 4-year, $400M+ collective bargaining agreement covering ~2,000 lecturers across three campuses. During that campaign I led contract modeling and analysis, developed digital organizing tools, and built participatory tools that let members visualize the contract's impact and shape their own proposals.</p>
+                <p>I now serve on LEO's Solidarity and Political Action Committee (SPACE) and the Huron Valley Area Labor Federation's Committee on Political Education (COPE), where I'm building agentic organizing infrastructure for legislative affairs and candidate pipelines.</p>
+                <p>I'm a Faculty Affiliate at the <span class="highlight">Center for Labor &amp; Community Studies</span> at UM-Dearborn, where I work on labor representation and visibility in digital and AI knowledge systems — and I'm broadly interested in preparing the labor movement for a generative AI world.</p>
+            </div>
+        </div>
+    </section>
 
-    <p>
-        I'm a steward in <span class="highlight">LEO (AFT Local 6244)</span>, where I've supported two contract campaigns. In 2021, I contributed data analysis and digital communications work as the union reached cross-campus parity for the first time. In 2024, I served on the bargaining team and co-led the organizing committee as we negotiated a 4-year, $400M+ collective bargaining agreement covering ~2,000 lecturers across three campuses. During that campaign I led contract modeling and analysis, developed digital organizing tools, and built participatory tools that let members visualize the contract's impact and shape their own proposals.
-    </p>
-    <p>
-        I now serve on LEO's Solidarity and Political Action Committee (SPACE) and the Huron Valley Area Labor Federation's Committee on Political Education (COPE), where I'm building agentic organizing infrastructure for legislative affairs and candidate pipelines.
-    </p>
-    <p>
-        I'm a Faculty Affiliate at the <span class="highlight">Center for Labor &amp; Community Studies</span> at UM-Dearborn, where I work on labor representation and visibility in digital and AI knowledge systems — and I'm broadly interested in preparing the labor movement for a generative AI world.
-    </p>
+    <footer>
+        <a href="mailto:akmadamanchi@gmail.com">akmadamanchi@gmail.com</a> · Ann Arbor, MI
+    </footer>
 
-</div>
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-        
-    </div>
-
-    <div class="color-bar"></div>
-
-    <div class="footer">
-        <a href="/cdn-cgi/l/email-protection#e1808c8085808c808fa1948c888289cf848594"><span class="__cf_email__" data-cfemail="80e1ede1e4e1ede1eec0f5ede9e3e8aee5e4f5">[email&#160;protected]</span></a> · Ann Arbor, MI
-    </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        const buttons = document.querySelectorAll('.tab-btn');
-        const panels = document.querySelectorAll('.tab-panel');
-        buttons.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var tab = btn.getAttribute('data-tab');
-                buttons.forEach(function(b) { b.classList.remove('active'); });
-                panels.forEach(function(p) { p.classList.remove('active'); });
-                btn.classList.add('active');
-                document.querySelector('.tab-panel[data-panel="' + tab + '"]').classList.add('active');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(a => a.classList.remove('active'));
+                    const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+                    if (link) link.classList.add('active');
+                }
             });
-        });
+        }, { threshold: 0.4 });
+
+        sections.forEach(s => observer.observe(s));
     </script>
 </body>
 </html>
