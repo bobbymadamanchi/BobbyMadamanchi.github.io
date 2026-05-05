@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXDBZF7F73"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JXDBZF7F73');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach — Bobby Madamanchi</title>
+    <meta name="description" content="Bobby Madamanchi teaches data science at the University of Michigan School of Information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cyan: #00BCD4;
+            --magenta: #E91E63;
+            --yellow: #FFD600;
+            --dark: #1a1a1a;
+            --cream: #F5F0EB;
+            --text: #2c2c2c;
+            --text-light: #666;
+        }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: var(--dark);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; height: 56px;
+        }
+        .nav-name {
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem;
+            color: #fff; text-decoration: none; letter-spacing: 0.04em;
+        }
+        .nav-links a {
+            font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            letter-spacing: 0.08em; margin-left: 2rem; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links a.active { color: var(--cyan); }
+
+        .page-header {
+            background: var(--dark);
+            padding: 8rem 2rem 3rem;
+        }
+        .page-header-inner {
+            max-width: 800px; margin: 0 auto;
+        }
+        .page-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--cyan);
+            letter-spacing: 0.04em;
+        }
+
+        .color-bar { height: 4px; display: flex; }
+        .color-bar span { flex: 1; }
+        .bar-cyan { background: var(--cyan); }
+        .bar-magenta { background: var(--magenta); }
+        .bar-yellow { background: var(--yellow); }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .content .highlight {
+            font-weight: 600;
+        }
+        .content-image {
+            width: 100%;
+            margin: 2rem 0;
+        }
+        .content-image img {
+            width: 100%;
+            display: block;
+        }
+        .content-image .caption {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        footer {
+            background: var(--dark); padding: 3rem 2rem; text-align: center;
+        }
+        footer a {
+            color: rgba(255,255,255,0.5); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.2s;
+        }
+        footer a:hover { color: #fff; }
+        footer span { color: rgba(255,255,255,0.3); margin: 0 0.5rem; }
+
+        @media (max-width: 768px) {
+            .page-header { padding: 7rem 1.5rem 2rem; }
+            .page-header h1 { font-size: 3rem; }
+            .content { padding: 2rem 1.5rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-name">Bobby Madamanchi</a>
+            <div class="nav-links">
+                <a href="teach.html" class="active">Teach</a>
+                <a href="build.html">Build</a>
+                <a href="organize.html">Organize</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <h1>Teach</h1>
+        </div>
+    </div>
+
+    <div class="color-bar">
+        <span class="bar-cyan"></span>
+        <span class="bar-magenta"></span>
+        <span class="bar-yellow"></span>
+    </div>
+
+    <div class="content">
+        <a href="index.html" class="back-link">← Back</a>
+
+        <p>I'm a Lecturer IV at the <span class="highlight">University of Michigan School of Information</span>, where I teach graduate students and working professionals to think with data and build things. My courses are organized around real problems and student-designed projects.</p>
+
+        <p>I facilitate student-centered research across sports analytics, civic technology, educational technology, computational biology, and electoral modeling. My students have built NBA career trajectory models, real-time jumpshot form analyzers, virtual cell simulations, electoral models, and worker-centered tools.</p>
+
+        <div class="content-image">
+            <img src="banner.png" alt="Civic tech design hackathon with UM Poverty Solutions">
+            <p class="caption">Civic tech design hackathon with UM Poverty Solutions</p>
+        </div>
+
+        <p>I hold a PhD in Cancer Biology from Vanderbilt University and was the Independent Future of Work & Learning Postdoctoral Fellow at Purdue Polytechnic.</p>
+    </div>
+
+    <div class="color-bar">
+        <span class="bar-cyan"></span>
+        <span class="bar-magenta"></span>
+        <span class="bar-yellow"></span>
+    </div>
+
+    <footer>
+        <a href="mailto:akmadamanchi@gmail.com">akmadamanchi@gmail.com</a>
+        <span>·</span>
+        <span style="color: rgba(255,255,255,0.5);">Ann Arbor, MI</span>
+    </footer>
+
+</body>
+</html>
